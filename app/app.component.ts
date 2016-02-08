@@ -1,9 +1,9 @@
 import {Component} from 'angular2/core';
 import {Hero} from './hero';
+import {HeroDetailComponent} from './hero-detail.component';
 
 @Component({
     selector: 'my-app',
-    //template: '<h1>{{title}}</h1><h2>{{hero.name}} details!</h2>'
     template: `
         <h1>{{title}}</h1>
         <h2>My Heroes</h2>
@@ -16,15 +16,8 @@ import {Hero} from './hero';
             <span class="badge">{{hero.id}}</span> {{hero.name}}
           </li>
         </ul>
-        <div *ngIf="selectedHero">
-            <h2>{{selectedHero.name}} details!</h2>
-            <div><label>id: </label>{{selectedHero.id}}</div>
-            <div>
-                <label>name: </label>
-                <input [(ngModel)]="selectedHero.name" placeholder="name">
-            </div>
-        </div>
-        `
+        <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+        `,
     styles:[`
       .selected {
         background-color: #CFD8DC !important;
@@ -72,13 +65,14 @@ import {Hero} from './hero';
         margin-right: .8em;
         border-radius: 4px 0px 0px 4px;
       }
-    `]
+    `],
+    directives: [HeroDetailComponent]
 })
 
 export class AppComponent {
     public title = 'Tour of Heroes';
-    public selectedHero: Hero;
     public heroes = HEROES;
+    public selectedHero: Hero;
 
     onSelect(hero: Hero) {this.selectedHero = hero; }
 }

@@ -3,7 +3,6 @@ import {Hero} from './hero';
 
 @Component({
     selector: 'my-hero-detail',
-    public hero: Hero;
     template: `
          <div *ngIf="hero">
           <h2>{{hero.name}} details!</h2>
@@ -13,8 +12,10 @@ import {Hero} from './hero';
             <input [(ngModel)]="hero.name" placeholder="name"/>
           </div>
         </div>
-    `
+    `,
+    inputs: ['hero']
 })
 
 export class HeroDetailComponent {
+    public hero: Hero;
 }
