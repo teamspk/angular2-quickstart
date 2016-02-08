@@ -45,4 +45,6 @@ Session.vim
 .netrwhist
 *~
 
-
+#angular
+*.js
+*.map
