@@ -9,7 +9,7 @@ import {HeroService} from './hero.service';
     inputs: ['hero']
 })
 
-export class HeroDetailComponent {
+export class HeroDetailComponent implements OnInit {
     public hero: Hero;
 
     constructor(private _heroService: HeroService, private _routeParams: RouteParams) {}
