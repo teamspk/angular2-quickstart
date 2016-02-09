@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HeroService} from './hero.service';
 import {HeroesComponent} from './heroes.component';
+import {DashboardComponent} from './dashboard.component';
 
 @Component({
     selector: 'my-app',
@@ -10,6 +11,7 @@ import {HeroesComponent} from './heroes.component';
         <my-heroes></my-heroes>
         <nav>
           <a [routerLink]="['Heroes']">Heroes</a>
+          <a [routerLink]="['Dashboard']">Dashboard</a>
         </nav>
         <router-outlet></router-outlet>
     `,
@@ -19,6 +21,7 @@ import {HeroesComponent} from './heroes.component';
 
 @RouteConfig([
     { path: '/heroes', name: 'Heroes', component: HeroesComponent }
+    { path: '/dashboard', name: 'Dashboard', component: DashboardComponent }
 ])
 
 export class AppComponent {
